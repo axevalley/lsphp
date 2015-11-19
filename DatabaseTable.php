@@ -11,4 +11,15 @@ class DatabaseTable extends DatabaseConnection {
         $this->passwd = $password;
         $this->table = $table;
     }
+
+    public function getAll()
+    {
+        $query = "SELECT * FROM " . $this->table . ";";
+        return $this->selectQuery($query);
+    }
+
+    public function getColumn($column)
+    {
+        return parent::getColumn($this->table, $column);
+    }
 }
